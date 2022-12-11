@@ -1,0 +1,23 @@
+# Global project settings
+
+session_save_dir: "saved-sessions"
+
+model_defaults: &model_defaults
+    policy_hidden_dims: [64, 64]
+    vf_hidden_dims: [64, 64]
+    cf_hidden_dims: [64, 64]
+
+    max_timesteps: 1000
+    n_episodes: 600
+    n_trajectories: 25
+
+attention_env_defaults: &attention_env_defaults
+    max_constraint_val: 0.5
+    bias_red_cost: 1.0
+
+attention_allocation:
+    env_name: attention_allocation
+
+    <<: *model_defaults
+    <<: *attention_env_defaults
+

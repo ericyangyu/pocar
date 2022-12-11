@@ -1,0 +1,23 @@
+# Global project settings
+
+session_save_dir: "saved-sessions"
+
+model_defaults: &model_defaults
+    policy_hidden_dims: [64, 64]
+    vf_hidden_dims: [64, 64]
+    cf_hidden_dims: [64, 64]
+
+    max_timesteps: 2000
+    n_episodes: 300
+    n_trajectories: 15
+
+lending_env_defaults: &lending_env_defaults
+    max_constraint_val: 0.5
+    bias_red_cost: 1.0
+
+lending:
+    env_name: lending
+
+    <<: *model_defaults
+    <<: *lending_env_defaults
+

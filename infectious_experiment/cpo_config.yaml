@@ -1,0 +1,23 @@
+# Global project settings
+
+session_save_dir: "saved-sessions"
+
+model_defaults: &model_defaults
+    policy_hidden_dims: [64, 64]
+    vf_hidden_dims: [64, 64]
+    cf_hidden_dims: [64, 64]
+
+    max_timesteps: 20
+    n_episodes: 1500
+    n_trajectories: 25
+
+infectious_env_defaults: &infectious_env_defaults
+    max_constraint_val: 0.8
+    bias_red_cost: 1.0
+
+infectious:
+    env_name: infectious
+
+    <<: *model_defaults
+    <<: *infectious_env_defaults
+
