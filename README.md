@@ -8,11 +8,20 @@ This is the code implementation for the NeurIPS 2022 [paper](https://arxiv.org/a
 Code and environments are adapted from the original Google ML-fairness-gym [repo](https://github.com/google/ml-fairness-gym).
 
 # Installation
-First, install [Anaconda](https://docs.anaconda.com/anaconda/install/) to set up virtual environment. Then, run:
+First, install [Anaconda](https://docs.anaconda.com/anaconda/install/) to set up virtual environment.
+
+To use `python 3.8`, run:
 ```
 conda create -n pocar python=3.8
 conda activate pocar
-pip install -r requirements.txt
+pip install -r requirements_py38.txt
+```
+
+To use `python 3.7`, run:
+```
+conda create -n pocar python=3.7
+conda activate pocar
+pip install -r requirements_py37.txt
 ```
 
 # Usage
