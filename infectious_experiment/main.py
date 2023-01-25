@@ -20,6 +20,8 @@ from stable_baselines3.common.vec_env import DummyVecEnv
 
 from networkx.algorithms import community
 
+import sys; sys.path.append('..')
+
 from infectious_experiment.agents.human_designed_policies import infectious_disease_agents
 from infectious_experiment.agents.human_designed_policies.infectious_disease_agents import CentralityAgent, RandomAgent, MaxNeighborsAgent
 from infectious_experiment.config import INFECTION_PROBABILITY, INFECTED_EXIT_PROBABILITY, NUM_TREATMENTS, BURNIN, \
