@@ -20,6 +20,8 @@ from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.vec_env import DummyVecEnv
 from yaml import full_load
 
+import sys; sys.path.append('..')
+
 from lending_experiment.agents.human_designed_policies import oracle_lending_agent
 from lending_experiment.agents.human_designed_policies.classifier_agents import ScoringAgentParams
 from lending_experiment.agents.human_designed_policies.threshold_policies import ThresholdPolicy

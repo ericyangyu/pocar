@@ -3,7 +3,7 @@ import os
 import pandas
 from matplotlib import pyplot as plt
 
-def plot_rews(exp_path, save_png=False):
+def plot_rets(exp_path, save_png=False):
     if not os.path.isdir(exp_path):
         exit(f"{exp_path} not found!!!")
 

@@ -15,6 +15,8 @@ from stable_baselines3.common.logger import configure
 from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.vec_env import DummyVecEnv
 
+import sys; sys.path.append('..')
+
 from attention_allocation_experiment.agents.human_designed_policies.allocation_agents import MLEGreedyAgent, MLEGreedyAgentParams
 from config import N_LOCATIONS, INCIDENT_RATES, N_ATTENTION_UNITS, DYNAMIC_RATE, EVAL_ZETA_0, EVAL_ZETA_1, EVAL_ZETA_2, \
     SAVE_DIR, EXP_DIR, POLICY_KWARGS, LEARNING_RATE, SAVE_FREQ, TRAIN_TIMESTEPS, EVAL_MODEL_PATHS, CPO_EVAL_MODEL_PATHS
@@ -25,7 +27,7 @@ from graphing.plot_att_all_over_time_across_agents import plot_att_all_over_time
 from graphing.plot_deltas_over_time_across_agents import plot_deltas_over_time_across_agents
 from graphing.plot_incidents_missed_over_time_across_agents import plot_incidents_missed_over_time_across_agents
 from graphing.plot_incidents_seen_over_time_across_agents import plot_incidents_seen_over_time_across_agents
-from graphing.plot_rews import plot_rets
+from graphing.plot_rets import plot_rets
 from graphing.plot_rew_over_time_across_agents import plot_rew_over_time_across_agents
 from graphing.plot_rew_terms_over_time_across_agents import plot_rew_terms_over_time_across_agents
 from graphing.plot_true_rates_over_time_across_agents import plot_true_rates_over_time_across_agents
@@ -143,7 +145,7 @@ def train(train_timesteps, env):
     model.save(SAVE_DIR + '/final_model')
 
     # Once we finish learning, plot the returns over time and save into the experiments directory
-    plot_rews(EXP_DIR)
+    plot_rets(EXP_DIR)
 
 def evaluate(env, agent, num_eps, num_timesteps, name, seeds, eval_path, algorithm=None):
     print(f'\nEvaluating {name}!\n')
@@ -287,7 +289,7 @@ if __name__ == '__main__':
         plot_rets(exp_path=EXP_DIR, save_png=True)
 
     if args.show_train_progress:
-        plot_rews(exp_path=EXP_DIR, save_png=False)
+        plot_rets(exp_path=EXP_DIR, save_png=False)
 
     if args.display_eval_path is not None:
         display_eval_results(eval_dir=args.display_eval_path)
